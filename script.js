@@ -1,30 +1,25 @@
-const changeButton = document.getElementById("change_button");
-const resetButton = document.getElementById("Reset");
+const changeBtn = document.getElementById("change_button");
+const resetBtn = document.getElementById("reset_button");
 
-changeButton.addEventListener("click", () => {
+changeBtn.addEventListener("click", () => {
   const blockId = document.getElementById("block_id").value;
   const color = document.getElementById("colour_id").value;
 
-  const allBlocks = document.querySelectorAll(".grid-item");
+  const blocks = document.querySelectorAll(".grid-item");
 
-  // Reset all blocks first
-  allBlocks.forEach(block => {
+  blocks.forEach(block => {
     block.style.backgroundColor = "transparent";
   });
 
-  // Change selected block color
-  const selectedBlock = document.getElementById(blockId);
-  if (selectedBlock) {
-    selectedBlock.style.backgroundColor = color;
+  const target = document.getElementById(blockId);
+  if (target) {
+    target.style.backgroundColor = color;
   }
 });
 
-resetButton.addEventListener("click", () => {
-  const allBlocks = document.querySelectorAll(".grid-item");
-  allBlocks.forEach(block => {
+resetBtn.addEventListener("click", () => {
+  const blocks = document.querySelectorAll(".grid-item");
+  blocks.forEach(block => {
     block.style.backgroundColor = "transparent";
   });
-
-  document.getElementById("block_id").value = "";
-  document.getElementById("colour_id").value = "";
 });
